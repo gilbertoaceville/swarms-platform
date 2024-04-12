@@ -21,12 +21,12 @@ export default function Navlinks({ user }: NavlinksProps) {
   const router = getRedirectMethod() === 'client' ? useRouter() : null;
 
   return (
-    <div className="relative flex flex-row justify-between py-2 align-center md:py-6 px-4">
+    <div className="relative flex flex-row justify-center py-2 align-center md:py-6 px-4">
       <div className="flex flex-shrink-0 items-center">
         {/* desktop */}
-        <div className="flex items-center w-[40px] h-[40px] min-w-[40px] max-md:hidden">
+        {/* <div className="flex items-center w-[40px] h-[40px] min-w-[40px] max-md:hidden">
           <Logo />
-        </div>
+        </div> */}
         <nav className="flex ml-2 md:ml-6 gap-3 max-md:hidden">
           <Link href="/pricing" className={s.link}>
             Pricing
@@ -40,19 +40,22 @@ export default function Navlinks({ user }: NavlinksProps) {
           <Link href="https://swarms.apac.ai/en/latest/" className={s.link}>
             Docs
           </Link>
-          {user && (
+          <Link href="https://calendly.com/swarm-corp/30min" className={s.link}>
+            Get Demo
+          </Link>
+          {/* {user && (
             <Link href={PLATFORM.DASHBOARD} className={s.link}>
               Dashboard
             </Link>
-          )}
+          )} */}
         </nav>
         {/* mobile */}
         <div className="md:hidden">
           <Drawer direction="left">
             <DrawerTrigger asChild>
-                <Button className="text-white p-0" variant="link">
-                  <Menu />
-                </Button>
+              <Button className="text-white p-0" variant="link">
+                <Menu />
+              </Button>
             </DrawerTrigger>
 
             <DrawerContent className="flex flex-col h-full w-[300px] mt-24 fixed bottom-0 rounded-none">
@@ -92,7 +95,7 @@ export default function Navlinks({ user }: NavlinksProps) {
         </div>
       </div>
       {/* common */}
-      <div className="flex justify-end items-center gap-2 w-full">
+      {/* <div className="flex justify-end items-center gap-2 w-full">
         {user ? (
           <form onSubmit={(e) => handleRequest(e, SignOut, router)}>
             <input type="hidden" name="pathName" value={usePathname()} />
@@ -108,7 +111,7 @@ export default function Navlinks({ user }: NavlinksProps) {
         <Link href="https://calendly.com/swarm-corp/30min" className={s.link}>
           Get Demo
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
